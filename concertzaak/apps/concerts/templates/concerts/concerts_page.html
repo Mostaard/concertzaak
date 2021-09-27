@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+{% load static %}
+{% block extra_css %}
+    <link rel='stylesheet' type='text/css' href="{% static 'concerts/concerts.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+    <div class="concerts">
+        {% for concert in page.get_concerts %}
+            <a href="{% pageurl concert%}" class="concert">
+                {% image concert.image fill-600x450 %}
+                <h3>{{ concert.concert_date }}</h3>
+                <h2>{{ concert.title }}</h2>
+                <p>{{ concert.introduction }}</p>
+                <p class="more-info">meer info</p>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

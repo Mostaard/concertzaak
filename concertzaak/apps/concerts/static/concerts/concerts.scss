@@ -1,0 +1,63 @@
+@use '../../../../static/css/vars';
+
+
+
+.concerts {
+  .concert {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: start;
+    align-items: start;
+    height: 25rem;
+    margin-bottom: 6rem;
+    text-decoration: none;
+    color: vars.$text-color;
+
+
+    &:hover {
+      .more-info {
+        transform: translate(-0.125em, -0.125em);
+
+        &::after {
+          transform: translate(.25em, .25em);
+
+        }
+      }
+    }
+
+    img {
+      width: 33.33rem;
+      height: 25rem;
+      margin-right: 3rem;
+    }
+
+    h2, h3, p {
+      max-width: 53.66rem;
+    }
+
+    h2 {
+      font-size: 3rem;
+      margin: 0 0 0.5em;
+    }
+
+    h3 {
+      color: vars.$accent-color;
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    .more-info {
+      @include vars.highlighted-hover;
+      font-size: 2rem;
+      font-family: vars.$fancy-font-bold;
+      position: absolute;
+      bottom: 0.35em;
+      right: 0.4em;
+    }
+  }
+}

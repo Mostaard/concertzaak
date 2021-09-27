@@ -1,0 +1,63 @@
+@font-face {
+  font-family: lulo-one;
+  src: url(../fonts/lulo-one.otf);
+}
+
+@font-face {
+  font-family: lulo-one-bold;
+  src: url(../fonts/lulo-one-bold.otf);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+$background-color: black;
+$text-color: #E8E8E8;
+$accent-color: #C98B1F;
+$nav-height: 90px;
+$fancy-font: lulo-one, sans-serif;
+$fancy-font-bold: lulo-one-bold, sans-serif;
+$page-width: 900px;
+
+$screen-size: (
+        's': 576px,
+        'm': 768px,
+        'l': 992px,
+        'xl': 1200px,
+);
+
+@mixin highlighted() {
+  color: $text-color;
+  display: inline-block;
+  position: relative;
+  transition: transform 120ms ease-in-out;
+
+  &:after {
+    transition: inherit;
+    content: '';
+    display: block;
+    position: absolute;
+    background: $accent-color;
+    top: 0.5em;
+    left: 0.5em;
+    width: 99%;
+    height: 1.1em;
+    z-index: -1;
+    text-transform: uppercase;
+    font-size: inherit;
+
+  }
+
+}
+
+@mixin highlighted-hover {
+  @include highlighted;
+  &:hover {
+    transform: translate(-0.125em, -0.125em);
+
+    &::after {
+      // this is positioned relative to the container, transform sizes have to be different otherwise it doesn't move
+      transform: translate(.25em, .25em);
+
+    }
+  }
+}

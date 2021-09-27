@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+{% load static %}
+
+{% block title_suffix %}
+{% endblock %}
+
+
+{% block extra_css %}
+    <link rel='stylesheet' type='text/css' href="{% static 'home/css/landing.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="landing">
+        {% image page.landing_image fill-800x800 %}
+        <div class="landing__text text-overlay">
+            {{ page.landing_text|richtext }}
+        </div>
+    </section>
+    {% if concerts_page %}
+        <section class="concerts">
+            <a class="title-link" href="{% pageurl concerts_page %}">
+                <h2>Concerten</h2>
+            </a>
+            <div class="container">
+                {% for concert in concerts_page.get_concerts %}
+                    <div class="concert">
+                        {% image concert.image fill-250x250 %}
+                        <h3>{{ concert.title }}</h3>
+                        <p>@ {{ concert.location.name }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="more-info">
+                <a class="rehearsal__more" href="{% pageurl concerts_page %}">Alle concerten <i
+                        class="fas fa-angle-double-right"></i></a>
+            </div>
+        </section>
+    {% endif %}
+    <section class="rehearsal">
+        <a class="title-link" href="{% pageurl rehearsal_page %}">
+            <h2>repeteren</h2>
+        </a>
+        <div class="rehearsal__text">
+            {{ page.rehearsal_text|richtext }}
+            <div class="more-info">
+                <a class="rehearsal__more" href="{% pageurl concerts_page %}">info<i
+                        class="fas fa-angle-double-right"></i></a>
+            </div>
+        </div>
+        {% image page.rehearsal_image fill-800x800 %}
+
+    </section>
+
+
+{% endblock content %}

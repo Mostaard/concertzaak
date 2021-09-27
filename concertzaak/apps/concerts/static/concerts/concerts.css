@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@font-face {
+  font-family: lulo-one;
+  src: url(../fonts/lulo-one.otf);
+}
+@font-face {
+  font-family: lulo-one-bold;
+  src: url(../fonts/lulo-one-bold.otf);
+}
+.concerts .concert {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: start;
+  align-items: start;
+  height: 25rem;
+  margin-bottom: 6rem;
+  text-decoration: none;
+  color: #E8E8E8;
+}
+.concerts .concert:hover .more-info {
+  transform: translate(-0.125em, -0.125em);
+}
+.concerts .concert:hover .more-info::after {
+  transform: translate(0.25em, 0.25em);
+}
+.concerts .concert img {
+  width: 33.33rem;
+  height: 25rem;
+  margin-right: 3rem;
+}
+.concerts .concert h2, .concerts .concert h3, .concerts .concert p {
+  max-width: 53.66rem;
+}
+.concerts .concert h2 {
+  font-size: 3rem;
+  margin: 0 0 0.5em;
+}
+.concerts .concert h3 {
+  color: #C98B1F;
+  font-size: 2rem;
+}
+.concerts .concert p {
+  font-size: 1.5rem;
+}
+.concerts .concert .more-info {
+  color: #E8E8E8;
+  display: inline-block;
+  position: relative;
+  transition: transform 120ms ease-in-out;
+  font-size: 2rem;
+  font-family: lulo-one-bold, sans-serif;
+  position: absolute;
+  bottom: 0.35em;
+  right: 0.4em;
+}
+.concerts .concert .more-info:after {
+  transition: inherit;
+  content: "";
+  display: block;
+  position: absolute;
+  background: #C98B1F;
+  top: 0.5em;
+  left: 0.5em;
+  width: 99%;
+  height: 1.1em;
+  z-index: -1;
+  text-transform: uppercase;
+  font-size: inherit;
+}
+.concerts .concert .more-info:hover {
+  transform: translate(-0.125em, -0.125em);
+}
+.concerts .concert .more-info:hover::after {
+  transform: translate(0.25em, 0.25em);
+}
+
+/*# sourceMappingURL=concerts.css.map */
