@@ -155,3 +155,17 @@ WAGTAIL_SITE_NAME = "concertzaak"
 BASE_URL = 'https://concertzaak.be'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+}
