@@ -1,4 +1,17 @@
 @use 'vars';
+@import "navigation";
+
+@font-face {
+  font-family: lulo-one;
+  src: url(../fonts/lulo-one.otf);
+}
+
+@font-face {
+  font-family: lulo-one-bold;
+  src: url(../fonts/lulo-one-bold.otf);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 
 * {
@@ -12,10 +25,10 @@ html {
 
 body {
   background: vars.$background-color;
-  max-width: 115rem;
   margin: 0 auto;
   color: vars.$text-color;
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -26,105 +39,6 @@ b {
   @include vars.highlighted;
 }
 
-nav {
-  overflow-x: hidden;
-
-  .hamburger {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    padding: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-
-    .line {
-      fill: none;
-      stroke: vars.$text-color;
-      stroke-width: 6;
-      transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .line1 {
-      stroke-dasharray: 60 207;
-      stroke-width: 6;
-    }
-
-    .line2 {
-      stroke-dasharray: 60 60;
-      stroke-width: 6;
-    }
-
-    .line3 {
-      stroke-dasharray: 60 207;
-      stroke-width: 6;
-    }
-
-  }
-
-  .desktop-menu {
-    display: none;
-  }
-
-  .mobile-menu {
-    position: fixed;
-    background: vars.$accent-color;
-    top: 0;
-    left: 100%;
-    pointer-events: none;
-    opacity: 0;
-    transition: all 180ms;
-    z-index: 1000;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 2rem;
-    }
-
-
-  }
-
-  &.opened {
-    .hamburger {
-      .line1 {
-        stroke-dasharray: 90 207;
-        stroke-dashoffset: -134;
-        stroke-width: 6;
-      }
-
-      .line2 {
-        stroke-dasharray: 1 60;
-        stroke-dashoffset: -30;
-        stroke-width: 6;
-      }
-
-      .line3 {
-        stroke-dasharray: 90 207;
-        stroke-dashoffset: -134;
-        stroke-width: 6;
-      }
-
-    }
-
-    .mobile-menu {
-      left: 0;
-      opacity: 1;
-      pointer-events: initial;
-    }
-  }
-
-}
 
 footer {
   background: vars.$accent-color;
@@ -135,8 +49,8 @@ h1, h2, h3 {
 }
 
 h1 {
-  margin: 1em 0 1.5em;
-  font-size: 7.2rem;
+  margin: .6em 0 1.5em .25em;
+  font-size: 2.5em;
   @include vars.highlighted;
 }
 
@@ -148,12 +62,16 @@ h1 {
 
 @media screen and (min-width: map_get(vars.$screen-size, 'm')) {
 
-
+  h1 {
+    margin-top: 3rem;
+    margin-left: 3rem;
+    font-size: 4rem;
+  }
 }
 
 @media screen and (min-width: map_get(vars.$screen-size, 'l')) {
   html {
-    font-size: 8px;
+    //font-size: 8px;
   }
 
 }
@@ -163,4 +81,70 @@ h1 {
     font-size: 10px;
   }
 
+}
+
+// ANIMATIONS
+
+$filters: (
+        saturate: (
+                units: '',
+                range: (
+                        min: 1,
+                        max: 10
+                ),
+                probability: 1/5
+        ),
+        hue-rotate: (
+                units: 'deg',
+                probability: 1,
+                range: (
+                        min: 0,
+                        max: 360
+                ),
+        ),
+        invert: (
+                units: '',
+                probability: 1/30,
+                range: (
+                        min: 1,
+                        max: 1
+                ),
+        ),
+        contrast: (
+                units: '',
+                probability: 1/10,
+                range: (
+                        min: 1,
+                        max: 10
+                ),
+        ),
+        brightness: (
+                units: '%',
+                probability: 1/20,
+                range: (
+                        min: 25,
+                        max: 75
+                ),
+        )
+);
+
+@keyframes spazz {
+  @for $i from 0 through 100 {
+    @if (random(100) < 66.6) {
+      #{$i}% {
+        $filter_css_value: '';
+        @each $filter, $filter_props in $filters {
+          @if ((random(100) / 100) < map-get($filter_props, probability)) {
+            $range: map-get($filter_props, range);
+            $min: map-get($range, min);
+            $max: map-get($range, max);
+            $filter_css_value: $filter_css_value + ' #{$filter}(#{random(100) / 100 * ($max - $min) + $min}#{map-get($filter_props, units)})';
+          }
+        }
+        filter: unquote($filter_css_value);
+        background-color: hsl(random(360), 100%, 70%);
+        transform: translate(#{random(30) - 15}px, #{random(30) - 15}px) scale(random(20) / 100 + 1.05);
+      }
+    }
+  }
 }

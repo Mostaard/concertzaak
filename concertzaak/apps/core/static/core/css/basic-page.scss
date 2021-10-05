@@ -1,0 +1,72 @@
+@use '../../../../../static/css/vars';
+
+
+.basic-page {
+  padding: 0.25rem 1rem;
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  h2, h3 {
+    margin-top: 2em;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+
+  h3 {
+    font-size: .8em;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    margin: 3rem auto;
+  }
+
+  ul {
+    margin: 1em 0;
+  }
+
+  li {
+    margin: .5em 0 0 1em;
+
+  }
+
+
+  &__content {
+    margin: 0 auto;
+    font-size: 2rem;
+    max-width: 65rem;
+    line-height: 140%;
+
+  }
+}
+
+
+@media screen and (min-width: map_get(vars.$screen-size, 's')) {
+
+
+}
+
+@media screen and (min-width: map_get(vars.$screen-size, 'm')) {
+
+}
+
+@media screen and (min-width: map_get(vars.$screen-size, 'l')) {
+  .basic-page {
+    H1 {
+      margin-top: 2rem;
+    }
+
+    &__content {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+@media (min-width: map_get(vars.$screen-size, 'xl')) {
+
+}

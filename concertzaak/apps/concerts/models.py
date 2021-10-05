@@ -23,6 +23,14 @@ class Location(models.Model):
 
 
 class ConcertsPage(Page):
+    no_concerts = models.CharField(max_length=150, help_text='Bericht wanneer er geen concerten ingepland zijn',
+                                   default='', blank=False)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('no_concerts'),
+
+    ]
+
     def get_concerts(self):
         return ConcertPage.objects.live().descendant_of(self)
 

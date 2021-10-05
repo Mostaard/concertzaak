@@ -1,14 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-@font-face {
-  font-family: lulo-one;
-  src: url(../fonts/lulo-one.otf);
+body {
+  overflow: hidden;
 }
-@font-face {
-  font-family: lulo-one-bold;
-  src: url(../fonts/lulo-one-bold.otf);
+
+.landing-container {
+  overflow-y: auto;
+  max-height: 100vh;
+  scroll-snap-type: y mandatory;
 }
+
+section {
+  scroll-snap-align: start;
+}
+
 h2 {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .title-link {
@@ -16,7 +21,7 @@ h2 {
   display: inline-block;
   position: relative;
   transition: transform 120ms ease-in-out;
-  font-size: 2rem;
+  font-size: 3rem;
   margin: 1em 0;
 }
 .title-link:after {
@@ -45,7 +50,10 @@ h2 {
   background: black;
   padding: 1em;
   position: absolute;
-  left: 8%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 1;
 }
 
@@ -58,39 +66,72 @@ h2 {
   color: #C98B1F;
   font-family: lulo-one, sans-serif;
   margin-top: 4rem;
+  transition: all 150ms ease-in-out;
+}
+.more-info a i {
+  transition: all 150ms ease-in-out;
+}
+.more-info a:hover {
+  transform: translateX(-0.25em);
+}
+.more-info a:hover i {
+  transform: translateX(0.5em);
 }
 
 .landing img, .rehearsal img {
   width: 100%;
-  height: 61.8vh;
+  height: 72vmax;
   object-fit: cover;
 }
 
 .landing {
   position: relative;
-  height: 100vh;
+  height: 100vmax;
 }
 .landing__text {
   font-size: 2rem;
-  top: 38.2vh;
+  top: 72vmax;
+  transform: translateY(-68%);
   font-family: lulo-one-bold, sans-serif;
 }
 
 .concerts {
   padding: 2rem 1rem;
+  height: 100vmax;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: start;
 }
 .concerts .container {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  max-width: 100%;
+  -ms-overflow-style: none;
+  align-items: start;
+  scrollbar-width: none;
+}
+.concerts .container::-webkit-scrollbar {
+  display: none;
 }
 .concerts .container .concert {
   flex: 0 0 auto;
   margin: 1rem;
+  width: 70vmin;
+  display: flex;
+  flex-direction: column-reverse;
 }
 .concerts .container .concert img {
-  width: 60vw;
+  width: 100%;
   height: auto;
+}
+.concerts .container .concert a {
+  z-index: 1000;
+}
+.concerts .container .concert a:hover ~ img {
+  animation: spazz 7s steps(1) infinite;
 }
 .concerts .container .concert h3 {
   color: #C98B1F;
@@ -101,25 +142,116 @@ h2 {
   font-family: lulo-one, sans-serif;
   font-size: 1.2rem;
 }
+.concerts .more-info {
+  align-self: flex-end;
+}
+.concerts .concerts-soon {
+  font-size: 2rem;
+  font-family: lulo-one, sans-serif;
+}
 
 .rehearsal {
   position: relative;
-  height: 100vh;
+  height: 100vmax;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 .rehearsal .title-link {
   margin-left: 1rem;
 }
 .rehearsal__text {
-  padding: 0 1rem;
+  padding: 1em;
   font-size: 1.8rem;
   line-height: 140%;
+  bottom: 0;
 }
-.rehearsal img {
-  margin-top: 3rem;
+
+@media (min-width: 768px) {
+  .more-info a {
+    font-size: 2rem;
+  }
+
+  .text-overlay {
+    width: 45%;
+    font-size: 2.5rem;
+  }
+
+  .concerts .container .concert {
+    display: flex;
+    align-items: start;
+  }
+  .concerts .container .concert img {
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+  }
+  .concerts .container .concert a {
+    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+  }
+  .concerts .container .concert h3 {
+    font-size: 2rem;
+  }
+  .concerts .container .concert p {
+    color: #B5B5B5;
+    font-family: lulo-one, sans-serif;
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .landing {
+    height: 100vmin;
+    box-sizing: border-box;
+  }
+  .landing__text {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 36vmax;
+    font-size: 3rem;
+    max-width: 20em;
+  }
+
+  .landing img, .rehearsal img {
+    height: 100vmin;
+    width: 100vmin;
+    max-width: 60vw;
+    object-fit: cover;
+  }
+
+  .concerts {
+    height: 100vmin;
+    padding: 0 4rem 2rem;
+  }
+  .concerts .container {
+    justify-content: space-around;
+  }
+  .concerts .container .concert {
+    width: 30%;
+    height: auto;
+  }
+  .concerts .container .concert img {
+    margin: 0;
+  }
+
+  .rehearsal {
+    height: 100vmin;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .rehearsal .title-link {
+    margin-top: 25vmin;
+  }
+  .rehearsal__text {
+    left: auto;
+    right: 0;
+    top: 35vmin;
+    width: calc(100vmax - 110vmin);
+    min-width: 36.5rem;
+  }
 }
 
 /*# sourceMappingURL=landing.css.map */

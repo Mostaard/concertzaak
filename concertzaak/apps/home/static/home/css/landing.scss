@@ -1,14 +1,27 @@
 @use '../../../../../static/css/vars';
 
-h2 {
-  font-size: 2rem;
 
+body {
+  overflow: hidden;
 }
 
+.landing-container {
+  overflow-y: auto;
+  max-height: 100vh;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+}
+
+h2 {
+  font-size: 3rem;
+}
 
 .title-link {
   @include vars.highlighted-hover;
-  font-size: 2rem;
+  font-size: 3rem;
   margin: 1em 0;
 
 }
@@ -18,7 +31,10 @@ h2 {
   background: black;
   padding: 1em;
   position: absolute;
-  left: 8%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 1;
 }
 
@@ -32,6 +48,20 @@ h2 {
     color: vars.$accent-color;
     font-family: vars.$fancy-font;
     margin-top: 4rem;
+    transition: all 150ms ease-in-out;
+
+
+    i {
+      transition: all 150ms ease-in-out;
+    }
+
+    &:hover {
+      transform: translateX(-.25em);
+
+      i {
+        transform: translateX(.5em);
+      }
+    }
   }
 
 }
@@ -39,20 +69,20 @@ h2 {
 .landing, .rehearsal {
   img {
     width: 100%;
-    height: 61.8vh;
+    height: 72vmax;
     object-fit: cover;
   }
 }
 
-
 .landing {
   position: relative;
-  height: 100vh;
+  height: 100vmax;
 
 
   &__text {
     font-size: 2rem;
-    top: 38.2vh;
+    top: 72vmax;
+    transform: translateY(-68%);
     font-family: vars.$fancy-font-bold;
 
   }
@@ -60,20 +90,46 @@ h2 {
 
 .concerts {
   padding: 2rem 1rem;
-
+  height: 100vmax;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: start;
 
   .container {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+    max-width: 100%;
+    -ms-overflow-style: none;
+    align-items: start;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
 
     .concert {
       flex: 0 0 auto;
       margin: 1rem;
+      width: 70vmin;
+      display: flex;
+      flex-direction: column-reverse;
+
 
       img {
-        width: 60vw;
+        width: 100%;
         height: auto;
+      }
+
+      a {
+        z-index: 1000;
+      }
+
+      a:hover ~ img {
+        animation: spazz 7s steps(1) infinite;
       }
 
       h3 {
@@ -89,31 +145,155 @@ h2 {
     }
   }
 
+  .more-info {
+    align-self: flex-end;
+  }
+
+  .concerts-soon {
+    font-size: 2rem;
+    font-family: vars.$fancy-font;
+  }
+
 
 }
 
 .rehearsal {
   position: relative;
-  height: 100vh;
+  height: 100vmax;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-
+  justify-content: flex-end;
+  flex-direction: column;
 
   .title-link {
     margin-left: 1rem;
   }
 
   &__text {
-    padding: 0 1rem;
+    padding: 1em;
     font-size: 1.8rem;
-    line-height: 140%;
+    line-height: vars.$line-height;
+    bottom: 0;
+  }
+
+
+}
+
+
+@media (min-width: map_get(vars.$screen-size, 'm')) {
+
+  .more-info {
+    a {
+      font-size: 2rem;
+    }
+  }
+  .text-overlay {
+    width: 45%;
+    font-size: 2.5rem;
+  }
+  .concerts {
+
+
+    .container {
+
+      .concert {
+        display: flex;
+        align-items: start;
+
+        img {
+          margin-bottom: 2rem;
+          margin-right: 2rem;
+        }
+
+        a {
+          padding-top: 2rem;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: end;
+        }
+
+        h3 {
+          font-size: 2rem;
+
+        }
+
+        p {
+          color: vars.$text-gray;
+          font-family: vars.$fancy-font;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
 
   }
 
-  img {
-    margin-top: 3rem;
+}
+
+@media (min-width: map_get(vars.$screen-size, 'l')) {
+  .landing {
+    height: 100vmin;
+    box-sizing: border-box;
+
+    &__text {
+      top: 50%;
+      transform: translateY(-50%);
+      left: 36vmax;
+      font-size: 3rem;
+      max-width: 20em;
+    }
   }
+  .landing, .rehearsal {
+    img {
+      height: 100vmin;
+      width: 100vmin;
+      max-width: 60vw;
+      object-fit: cover;
+    }
+  }
+
+  .concerts {
+    height: 100vmin;
+    padding: 0 4rem 2rem;
+
+    .container {
+      justify-content: space-around;
+
+      .concert {
+        width: 30%;
+        height: auto;
+
+
+        img {
+          margin: 0;
+        }
+
+      }
+    }
+  }
+
+  .rehearsal {
+    height: 100vmin;
+    display: flex;
+    flex-direction: row-reverse;
+
+    .title-link {
+      margin-top: 25vmin;
+    }
+
+    &__text {
+      left: auto;
+      right: 0;
+      top: 35vmin;
+      width: calc(100vmax - 110vmin);
+      min-width: 36.5rem;
+    }
+  }
+
+
+}
+
+@media (min-width: map_get(vars.$screen-size, 'xl')) {
 
 }

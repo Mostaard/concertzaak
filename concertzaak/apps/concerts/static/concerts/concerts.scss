@@ -1,63 +1,132 @@
 @use '../../../../static/css/vars';
 
-
-
 .concerts {
+
   .concert {
-    position: relative;
+    margin-bottom: 3rem;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: start;
-    align-items: start;
-    height: 25rem;
-    margin-bottom: 6rem;
-    text-decoration: none;
-    color: vars.$text-color;
+    flex-direction: row-reverse;
 
+    a {
+      display: flex;
+      flex-direction: column;
+      align-content: start;
+      align-items: start;
+      box-sizing: border-box;
+      z-index: 1000;
 
-    &:hover {
-      .more-info {
-        transform: translate(-0.125em, -0.125em);
+      &:hover {
+        .more-info {
+          transform: translate(-0.125em, -0.125em);
 
-        &::after {
-          transform: translate(.25em, .25em);
-
+          &::after {
+            transform: translate(.25em, .25em);
+          }
         }
+      }
+
+      &:hover ~ img {
+        animation: spazz 7s steps(1) infinite;
+
+
       }
     }
 
-    img {
-      width: 33.33rem;
-      height: 25rem;
-      margin-right: 3rem;
+    .more-info {
+      align-self: end;
+      @include vars.highlighted;
+      font-family: vars.$fancy-font-bold;
+      margin-right: 0.65rem;
+      margin-top: 1rem;
+
     }
 
-    h2, h3, p {
-      max-width: 53.66rem;
+    img {
+      width: 100%;
+      max-width: 100vmin;
+      height: auto;
+      pointer-events: none;
+    }
+
+    h2, p {
+      color: vars.$text-color;
     }
 
     h2 {
-      font-size: 3rem;
+      font-size: 2rem;
       margin: 0 0 0.5em;
     }
 
     h3 {
       color: vars.$accent-color;
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
 
     p {
       font-size: 1.5rem;
+      line-height: vars.$line-height;
     }
 
-    .more-info {
-      @include vars.highlighted-hover;
-      font-size: 2rem;
-      font-family: vars.$fancy-font-bold;
-      position: absolute;
-      bottom: 0.35em;
-      right: 0.4em;
+  }
+}
+
+@media screen and (min-width: map_get(vars.$screen-size, 's')) {
+
+  .concerts {
+    .concert {
+      display: flex;
+      align-items: stretch;
+
+      a {
+        padding-left: 1rem;
+        box-sizing: border-box;
+        flex-grow: 1;
+
+        .more-info {
+          margin-top: auto;
+          margin-bottom: 0;
+        }
+
+      }
     }
   }
+
+
+}
+
+@media screen and (min-width: map_get(vars.$screen-size, 'm')) {
+
+  .concerts {
+    padding: 0 3rem;
+
+    .concert {
+      margin: 4rem 0;
+
+      a {
+        padding-left: 2rem;
+      }
+
+      img {
+        max-width: 50vmin;
+      }
+    }
+  }
+
+
+}
+
+@media screen and (min-width: map_get(vars.$screen-size, 'l')) {
+  .concerts {
+    .concert {
+      a {
+        padding-left: 5rem;
+      }
+    }
+  }
+
+
+}
+
+@media (min-width: map_get(vars.$screen-size, 'xl')) {
+
 }

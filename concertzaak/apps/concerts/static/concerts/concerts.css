@@ -1,59 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-@font-face {
-  font-family: lulo-one;
-  src: url(../fonts/lulo-one.otf);
-}
-@font-face {
-  font-family: lulo-one-bold;
-  src: url(../fonts/lulo-one-bold.otf);
-}
 .concerts .concert {
-  position: relative;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.concerts .concert a {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-content: start;
   align-items: start;
-  height: 25rem;
-  margin-bottom: 6rem;
-  text-decoration: none;
-  color: #E8E8E8;
+  box-sizing: border-box;
+  z-index: 1000;
 }
-.concerts .concert:hover .more-info {
+.concerts .concert a:hover .more-info {
   transform: translate(-0.125em, -0.125em);
 }
-.concerts .concert:hover .more-info::after {
+.concerts .concert a:hover .more-info::after {
   transform: translate(0.25em, 0.25em);
 }
-.concerts .concert img {
-  width: 33.33rem;
-  height: 25rem;
-  margin-right: 3rem;
-}
-.concerts .concert h2, .concerts .concert h3, .concerts .concert p {
-  max-width: 53.66rem;
-}
-.concerts .concert h2 {
-  font-size: 3rem;
-  margin: 0 0 0.5em;
-}
-.concerts .concert h3 {
-  color: #C98B1F;
-  font-size: 2rem;
-}
-.concerts .concert p {
-  font-size: 1.5rem;
+.concerts .concert a:hover ~ img {
+  animation: spazz 7s steps(1) infinite;
 }
 .concerts .concert .more-info {
+  align-self: end;
   color: #E8E8E8;
   display: inline-block;
   position: relative;
   transition: transform 120ms ease-in-out;
-  font-size: 2rem;
   font-family: lulo-one-bold, sans-serif;
-  position: absolute;
-  bottom: 0.35em;
-  right: 0.4em;
+  margin-right: 0.65rem;
+  margin-top: 1rem;
 }
 .concerts .concert .more-info:after {
   transition: inherit;
@@ -69,11 +44,61 @@
   text-transform: uppercase;
   font-size: inherit;
 }
-.concerts .concert .more-info:hover {
-  transform: translate(-0.125em, -0.125em);
+.concerts .concert img {
+  width: 100%;
+  max-width: 100vmin;
+  height: auto;
+  pointer-events: none;
 }
-.concerts .concert .more-info:hover::after {
-  transform: translate(0.25em, 0.25em);
+.concerts .concert h2, .concerts .concert p {
+  color: #E8E8E8;
+}
+.concerts .concert h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5em;
+}
+.concerts .concert h3 {
+  color: #C98B1F;
+  font-size: 1.5rem;
+}
+.concerts .concert p {
+  font-size: 1.5rem;
+  line-height: 140%;
+}
+
+@media screen and (min-width: 576px) {
+  .concerts .concert {
+    display: flex;
+    align-items: stretch;
+  }
+  .concerts .concert a {
+    padding-left: 1rem;
+    box-sizing: border-box;
+    flex-grow: 1;
+  }
+  .concerts .concert a .more-info {
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .concerts {
+    padding: 0 3rem;
+  }
+  .concerts .concert {
+    margin: 4rem 0;
+  }
+  .concerts .concert a {
+    padding-left: 2rem;
+  }
+  .concerts .concert img {
+    max-width: 50vmin;
+  }
+}
+@media screen and (min-width: 992px) {
+  .concerts .concert a {
+    padding-left: 5rem;
+  }
 }
 
 /*# sourceMappingURL=concerts.css.map */

@@ -1,22 +1,13 @@
-@font-face {
-  font-family: lulo-one;
-  src: url(../fonts/lulo-one.otf);
-}
-
-@font-face {
-  font-family: lulo-one-bold;
-  src: url(../fonts/lulo-one-bold.otf);
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
 $background-color: black;
 $text-color: #E8E8E8;
+$text-gray: #B5B5B5;
 $accent-color: #C98B1F;
 $nav-height: 90px;
 $fancy-font: lulo-one, sans-serif;
 $fancy-font-bold: lulo-one-bold, sans-serif;
-$page-width: 900px;
+$text-font: roboto, sans-serif;
+$page-width: 115rem;
+$line-height: 140%;
 
 $screen-size: (
         's': 576px,
@@ -44,9 +35,7 @@ $screen-size: (
     z-index: -1;
     text-transform: uppercase;
     font-size: inherit;
-
   }
-
 }
 
 @mixin highlighted-hover {
@@ -61,3 +50,6 @@ $screen-size: (
     }
   }
 }
+
+
+

@@ -113,11 +113,11 @@ img {
         &:hover {
 
           span {
-            transform: translate(0.5rem, 0);
+            transform: translate(-0.5rem, 0);
           }
 
           i {
-            transform: translate(-0.5rem, 0);
+            transform: translate(0.5rem, 0);
           }
 
 
@@ -177,7 +177,7 @@ img {
 
       &__information {
         font-size: 2rem;
-        line-height: 140%;
+        line-height: vars.$line-height;
       }
     }
 

@@ -1,6 +1,12 @@
 window.addEventListener('load', (event) => {
     document.querySelector('nav .hamburger')
         .addEventListener('click', event => toggleMenu(event.target));
+    document.querySelector('nav .dropdown-toggle')
+        .addEventListener('click', event => toggleDropdown(event));
+    document.addEventListener('click', () =>
+        document.querySelectorAll('.dropdown-menu.open')
+            .forEach(dropdown => dropdown.classList.remove('open')));
+
 })
 
 function toggleMenu(button) {
@@ -8,4 +14,12 @@ function toggleMenu(button) {
     const nav = button.closest('nav');
     nav.classList.toggle('opened');
     button.setAttribute('aria-expanded', nav.classList.contains('opened'));
+}
+
+function toggleDropdown(event) {
+    event.preventDefault();
+    setTimeout(() => {
+        event.target.closest('.dropdown').querySelector('.dropdown-menu').classList.toggle('open');
+    }, 0)
+
 }
