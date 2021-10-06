@@ -1,8 +1,10 @@
 window.addEventListener('load', (event) => {
     document.querySelector('nav .hamburger')
         .addEventListener('click', event => toggleMenu(event.target));
-    document.querySelector('nav .dropdown-toggle')
-        .addEventListener('click', event => toggleDropdown(event));
+    const dropdown = document.querySelector('nav .dropdown-toggle')
+    if (dropdown) {
+        dropdown.addEventListener('click', event => toggleDropdown(event))
+    }
     document.addEventListener('click', () =>
         document.querySelectorAll('.dropdown-menu.open')
             .forEach(dropdown => dropdown.classList.remove('open')));
