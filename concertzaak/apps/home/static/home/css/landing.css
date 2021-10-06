@@ -224,13 +224,13 @@ h2 {
 
   .concerts {
     height: 100vmin;
-    padding: 0 4rem 2rem;
+    padding: 8rem 4rem;
   }
   .concerts .container {
     justify-content: space-around;
   }
   .concerts .container .concert {
-    width: 30%;
+    width: 25%;
     height: auto;
   }
   .concerts .container .concert img {

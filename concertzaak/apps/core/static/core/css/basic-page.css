@@ -1,0 +1,43 @@
+.basic-page {
+  padding: 0.25rem 1rem;
+}
+.basic-page h1 {
+  margin-bottom: 0;
+}
+.basic-page h2, .basic-page h3 {
+  margin-top: 2em;
+}
+.basic-page h2 {
+  font-size: 1em;
+}
+.basic-page h3 {
+  font-size: 0.8em;
+}
+.basic-page img {
+  width: 100%;
+  height: auto;
+  margin: 3rem auto;
+}
+.basic-page ul {
+  margin: 1em 0;
+}
+.basic-page li {
+  margin: 0.5em 0 0 1em;
+}
+.basic-page__content {
+  margin: 0 auto;
+  font-size: 2rem;
+  max-width: 65rem;
+  line-height: 140%;
+}
+
+@media screen and (min-width: 992px) {
+  .basic-page H1 {
+    margin-top: 2rem;
+  }
+  .basic-page__content {
+    font-size: 2.4rem;
+  }
+}
+
+/*# sourceMappingURL=basic-page.css.map */

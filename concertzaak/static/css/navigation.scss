@@ -43,18 +43,19 @@ nav {
     top: 2rem;
     display: none;
     position: absolute;
-    right: 6.5rem;
+    left: 0;
     align-items: center;
     justify-content: space-between;
-    width: calc(100vmax - 100vmin - 2rem);
+    width: 100%;
     z-index: 1500;
-    min-width: 40rem;
+    padding: 0 10rem 0 1rem;
+    box-sizing: border-box;
 
     .navbar-nav {
       list-style-type: none;
       display: flex;
-      justify-content: space-evenly;
-      flex-grow: 1;
+      gap: 2em;
+      justify-content: space-between;
       position: relative;
       font-family: vars.$fancy-font;
       text-transform: uppercase;
@@ -103,12 +104,14 @@ nav {
           pointer-events: initial;
         }
       }
+
+      a {
+        font-size: 1.4rem;
+        color: vars.$text-color;
+      }
     }
 
-    a {
-      font-size: 1.4rem;
-      color: vars.$text-color;
-    }
+
   }
 
   .mobile-menu {

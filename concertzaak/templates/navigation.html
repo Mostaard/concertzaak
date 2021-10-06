@@ -1,7 +1,9 @@
+{% load core.snippets %}
 {% load menu_tags %}
 {% load wagtailcore_tags %}
 <nav>
     <div class="desktop-menu">
+        {% show_socials %}
         <div class="desktop-menu__logo">
 
         </div>
@@ -15,6 +17,7 @@
         <div>
             {% main_menu max_levels=2 %}
         </div>
+        {% show_socials %}
     </div>
     <button class="hamburger"
             aria-label="Main Menu">
