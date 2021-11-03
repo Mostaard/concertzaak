@@ -96,7 +96,7 @@ h2 {
 }
 
 .concerts {
-  padding: 2rem 1rem;
+  padding: 8rem 1rem 2rem;
   height: 100vmax;
   display: flex;
   flex-direction: column;
@@ -158,6 +158,7 @@ h2 {
   align-items: flex-start;
   justify-content: flex-end;
   flex-direction: column;
+  padding-top: 8rem;
 }
 .rehearsal .title-link {
   margin-left: 1rem;
@@ -241,6 +242,7 @@ h2 {
     height: 100vmin;
     display: flex;
     flex-direction: row-reverse;
+    padding-top: 0;
   }
   .rehearsal .title-link {
     margin-top: 25vmin;

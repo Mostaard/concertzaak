@@ -1,19 +1,14 @@
+{% load static %}
 {% load core.snippets %}
 {% load menu_tags %}
 {% load wagtailcore_tags %}
 <nav>
+    <a class='logo' href="/"> <img alt="logo" src="{% static "img/logo/logo-wit.svg" %}"></a>
     <div class="desktop-menu">
         {% show_socials %}
-        <div class="desktop-menu__logo">
-
-        </div>
         {% main_menu max_levels=2 %}
-
     </div>
     <div class="mobile-menu">
-        <div class="mobile-menu__logo">
-
-        </div>
         <div>
             {% main_menu max_levels=2 %}
         </div>

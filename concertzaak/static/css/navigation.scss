@@ -39,10 +39,25 @@ nav {
 
   }
 
+  .logo {
+    height: auto;
+    position: absolute;
+    z-index: 3000;
+    top: 2rem;
+    left: 2rem;
+    transition: opacity 150ms linear;
+
+
+    img {
+      width: 10rem;
+    }
+  }
+
   .desktop-menu {
     top: 2rem;
     display: none;
     position: absolute;
+    height: 8rem;
     left: 0;
     align-items: center;
     justify-content: space-between;
@@ -158,16 +173,6 @@ nav {
 
   }
 
-  .desktop-menu, .mobile-menu {
-    &__logo {
-      display: block;
-      background: transparent;
-      width: 50px;
-      height: 8rem;
-
-    }
-  }
-
   &.opened {
     .hamburger {
       .line1 {
@@ -199,6 +204,10 @@ nav {
       opacity: 1;
       pointer-events: initial;
     }
+
+    .logo {
+      opacity: 0;
+    }
   }
 
 }
@@ -209,6 +218,11 @@ nav {
       top: 3rem;
       right: 2rem;
     }
+
+    .logo {
+      left: 4rem;
+      top: 4rem;
+    }
   }
 }
 
@@ -216,7 +230,13 @@ nav {
   nav {
     .desktop-menu {
       display: flex;
+    }
 
+    .logo {
+      left: calc(100vmin - 20rem);
+      img{
+        width: 18rem;
+      }
     }
   }
 }
