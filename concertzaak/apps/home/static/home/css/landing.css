@@ -255,5 +255,16 @@ h2 {
     min-width: 36.5rem;
   }
 }
+footer {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 8rem;
+  padding-bottom: 0;
+  scroll-snap-align: start;
+  position: relative;
+}
+footer .logo {
+  display: none;
+}
 
 /*# sourceMappingURL=landing.css.map */

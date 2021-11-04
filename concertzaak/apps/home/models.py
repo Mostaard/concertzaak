@@ -40,4 +40,7 @@ class LandingPage(Page):
         context = super().get_context(request)
         context['concerts_page'] = ConcertsPage.objects.first()
         context['rehearsal_page'] = ConcertsPage.objects.first()
+
+        # Footer will be manually added on this page
+        context['disable_footer'] = True
         return context

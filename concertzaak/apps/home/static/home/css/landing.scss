@@ -293,6 +293,19 @@ h2 {
 
 }
 
+footer {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 8rem;
+  padding-bottom: 0;
+  scroll-snap-align: start;
+  position: relative;
+
+  .logo {
+    display: none;
+  }
+}
+
 @media (min-width: map_get(vars.$screen-size, 'xl')) {
 
 }

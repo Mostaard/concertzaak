@@ -24,6 +24,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 INSTALLED_APPS = [
     'concertzaak.apps.concerts',
+    'concertzaak.apps.contact',
     'concertzaak.apps.core',
     'concertzaak.apps.guides',
     'concertzaak.apps.home',

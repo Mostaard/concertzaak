@@ -1,0 +1,21 @@
+{% load static %}
+{% load core.snippets %}
+{% load menu_tags %}
+
+<footer>
+    <a class='logo' href="/"> <img alt="logo" src="{% static "img/logo/logo-zwart.svg" %}"></a>
+    <div class="container">
+        {% main_menu template='core/footer_menu.html' add_sub_menus_inline=True %}
+        {% if contact %}
+            <ul class="contact">
+                {% for detail in contact.details.all %}
+                    <li>
+                        {% if detail.font_awesome_icon %} <i class="{{ detail.font_awesome_icon }}"></i>{% endif %}
+                        {{ detail.description|safe }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    {% show_socials %}
+</footer>

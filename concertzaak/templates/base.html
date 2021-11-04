@@ -1,3 +1,4 @@
+{% load core.snippets %}
 {% load static wagtailcore_tags wagtailuserbar %}
 {% wagtail_site as current_site %}
 
@@ -31,7 +32,9 @@
 {% endif %}
 {% include 'navigation.html' %}
 {% block content %}{% endblock %}
-<footer></footer>
+{% if not disable_footer %}
+    {% footer %}
+{% endif %}
 {# Global javascript #}
 <script type="text/javascript" src="{% static 'js/concertzaak.js' %}"></script>
 <script id="mcjs">!function (c, h, i, m, p) {
