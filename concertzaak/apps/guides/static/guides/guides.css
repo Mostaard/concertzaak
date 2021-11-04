@@ -1,0 +1,124 @@
+.guides-body {
+  padding: 0 2rem;
+}
+
+.guides {
+  min-height: calc(100vh - 22rem);
+  max-width: 65rem;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+.guides a {
+  color: #C98B1F;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.guides__introduction {
+  margin: 4em 0 0;
+  display: block;
+}
+.guides__introduction:after {
+  display: none;
+}
+.guides__introduction span {
+  display: block;
+}
+.guides__introduction span:first-child {
+  margin-bottom: 1em;
+  color: #E8E8E8;
+  display: inline-block;
+  position: relative;
+  transition: transform 120ms ease-in-out;
+}
+.guides__introduction span:first-child:after {
+  transition: inherit;
+  content: "";
+  display: block;
+  position: absolute;
+  background: #C98B1F;
+  top: 0.5em;
+  left: 0.5em;
+  width: 99%;
+  height: 1.1em;
+  z-index: -1;
+  text-transform: uppercase;
+  font-size: inherit;
+}
+.guides__introduction span:last-child {
+  font-size: 1.9rem;
+  margin-bottom: 1.5em;
+}
+.guides .guide {
+  margin: 2em 0;
+}
+.guides .guide__title {
+  color: #C98B1F;
+  font-size: 1.8rem;
+  font-family: lulo-one-bold, sans-serif;
+  margin: 1em 0;
+  cursor: pointer;
+}
+.guides .guide__content {
+  font-size: 1.6rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 500ms ease-in-out, opacity 500ms linear;
+  -moz-transition: max-height 500ms ease-in-out, opacity 500ms linear;
+  transition: max-height 500ms ease-in-out, opacity 500ms linear;
+}
+.guides .guide__content h3 {
+  font-size: 1.6rem;
+  color: #C98B1F;
+  margin: 3em 0 0;
+}
+.guides .guide__content p {
+  margin-bottom: 1em;
+}
+.guides .guide i {
+  border-radius: 5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 200ms linear, color 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+.guides .guide.open .guide__content {
+  max-height: 1000px;
+  opacity: 1;
+}
+.guides .guide.open i {
+  transform: rotate(180deg);
+}
+
+@media screen and (min-width: 576px) {
+  .guides .guide__title i {
+    width: 3rem;
+    height: 3rem;
+    margin: 1em;
+  }
+}
+@media screen and (min-width: 992px) {
+  .guides__introduction {
+    display: flex;
+    gap: 1em;
+  }
+  .guides__introduction span:first-of-type {
+    margin-top: -1.4rem;
+  }
+  .guides .guide__title {
+    display: flex;
+    align-items: center;
+  }
+  .guides .guide__title:hover i {
+    background: #C98B1F;
+    color: white;
+  }
+  .guides .guide:nth-of-type(even) {
+    text-align: right;
+  }
+  .guides .guide:nth-of-type(even) .guide__title {
+    flex-direction: row-reverse;
+  }
+}
+
+/*# sourceMappingURL=guides.css.map */

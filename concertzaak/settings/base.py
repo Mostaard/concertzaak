@@ -25,6 +25,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 INSTALLED_APPS = [
     'concertzaak.apps.concerts',
     'concertzaak.apps.core',
+    'concertzaak.apps.guides',
     'concertzaak.apps.home',
     'concertzaak.apps.search',
 
@@ -169,3 +170,7 @@ LOGGING = {
         'level': 'INFO',
     },
 }
+
+INTERNAL_IPS = (
+    '127.0.0.1',
+)

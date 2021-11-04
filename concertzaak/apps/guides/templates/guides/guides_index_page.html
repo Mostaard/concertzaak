@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load static %}
+{% block extra_css %}
+    <link rel='stylesheet' type='text/css' href="{% static 'guides/guides.css' %}">
+{% endblock %}
+{% block body_class %}guides-body{% endblock %}
+
+{% block content %}
+    <div class="guides">
+        <h1 class="guides__introduction">
+            <span class="">Krater</span>
+            <span>De Mechelse repetitieruimtes</span>
+        </h1>
+        {% for page in self.get_children.specific %}
+            <div class="guide">
+                <h2 class="guide__title">{{ page.title }} <i class="fas fa-chevron-down"></i></h2>
+                <div class="guide__content">
+                    <div class="guide__content__intro">{{ page.introduction|richtext }}</div>
+                    <div class="guide__content__steps">
+                        {% for step in page.steps.all %}
+                            <div class="step">
+                                <h3>{{ forloop.counter }}. {{ step.title }}</h3>
+                                <div>{{ step.description|richtext }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block extra_js %}
+    <script type="text/javascript" src="{% static 'guides/guides.js' %}"></script>
+{% endblock %}
