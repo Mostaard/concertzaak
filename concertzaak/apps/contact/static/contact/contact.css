@@ -1,0 +1,14 @@
+.contact {
+  padding: 2em;
+  max-width: 65rem;
+  margin: 0 auto;
+}
+.contact__details {
+  font-size: 1.6em;
+  list-style-type: none;
+}
+.contact__details li {
+  margin-bottom: 0.5em;
+}
+
+/*# sourceMappingURL=contact.css.map */

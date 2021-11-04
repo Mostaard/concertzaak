@@ -1,0 +1,16 @@
+.contact {
+  padding: 2em;
+  max-width: 65rem;
+  margin: 0 auto;
+
+  &__details {
+    font-size: 1.6em;
+    list-style-type: none;
+
+    li {
+      margin-bottom: .5em;
+
+
+    }
+  }
+}
