@@ -8,7 +8,7 @@ from wagtail.core.models import Orderable, Page
 
 
 class GuidesIndexPage(Page):
-    child_page_types = ['guides.GuidePage']
+    subpage_types = ['guides.GuidePage']
 
 
 class GuidePage(Page):

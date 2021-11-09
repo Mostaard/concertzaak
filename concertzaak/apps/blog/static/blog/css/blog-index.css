@@ -1,0 +1,95 @@
+.blog-index-page {
+  padding: 0 2rem;
+}
+.blog-index-page h1 {
+  margin-bottom: 0.5em;
+  font-size: 2.2em;
+}
+.blog-index-page H2 {
+  margin-left: 0.3em;
+}
+.blog-index-page .post {
+  padding: 2em 0;
+  font-size: 1.4em;
+  width: 100%;
+}
+.blog-index-page .post h4 {
+  font-family: lulo-one, sans-serif;
+  color: #B5B5B5;
+  font-size: 0.9em;
+}
+.blog-index-page .post h3 {
+  font-size: 1em;
+}
+.blog-index-page .post img {
+  margin: 0 -2rem;
+  width: calc(100% + 4rem);
+  height: auto;
+}
+.blog-index-page .post__content {
+  padding: 1em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.blog-index-page .post__content .more-info {
+  align-self: end;
+  font-family: lulo-one-bold, sans-serif;
+  color: #E8E8E8;
+  display: inline-block;
+  position: relative;
+  transition: transform 120ms ease-in-out;
+}
+.blog-index-page .post__content .more-info:after {
+  transition: inherit;
+  content: "";
+  display: block;
+  position: absolute;
+  background: #C98B1F;
+  top: 0.5em;
+  left: 0.5em;
+  width: 99%;
+  height: 1.1em;
+  z-index: -1;
+  text-transform: uppercase;
+  font-size: inherit;
+}
+.blog-index-page .post__content .more-info:hover {
+  transform: translate(-0.125em, -0.125em);
+}
+.blog-index-page .post__content .more-info:hover::after {
+  transform: translate(0.25em, 0.25em);
+}
+
+@media (min-width: 768px) {
+  .blog-index-page {
+    padding-top: 5em;
+  }
+  .blog-index-page__posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+  }
+  .blog-index-page__posts .post img {
+    width: 100%;
+    margin: 0;
+  }
+  .blog-index-page__posts .post__content {
+    min-height: 7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 992px) {
+  .blog-index-page__posts {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  .blog-index-page__posts {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+/*# sourceMappingURL=blog-index.css.map */

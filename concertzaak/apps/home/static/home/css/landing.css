@@ -225,7 +225,7 @@ h2 {
 
   .concerts {
     height: 100vmin;
-    padding: 8rem 4rem;
+    padding: 6rem 4rem 2rem;
   }
   .concerts .container {
     justify-content: space-around;
