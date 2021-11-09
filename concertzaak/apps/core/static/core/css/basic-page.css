@@ -24,12 +24,6 @@
 .basic-page li {
   margin: 0.5em 0 0 1em;
 }
-.basic-page__content {
-  margin: 0 auto;
-  font-size: 2rem;
-  max-width: 65rem;
-  line-height: 140%;
-}
 
 @media screen and (min-width: 992px) {
   .basic-page H1 {
