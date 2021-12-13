@@ -7,13 +7,15 @@
 {% block body_class %}guides-body{% endblock %}
 
 {% block content %}
-    <div class="guides">
+    <div class="guides {% if forloop.first %}
+            open
+        {% endif %}">
         <h1 class="guides__introduction">
             <span class="">Krater</span>
             <span>De Mechelse repetitieruimtes</span>
         </h1>
         {% for page in self.get_children.specific %}
-            <div class="guide">
+            <div class="guide ">
                 <h2 class="guide__title">{{ page.title }} <i class="fas fa-chevron-down"></i></h2>
                 <div class="guide__content">
                     <div class="guide__content__intro">{{ page.introduction|richtext }}</div>
