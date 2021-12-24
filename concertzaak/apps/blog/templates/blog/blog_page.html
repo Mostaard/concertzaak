@@ -10,8 +10,11 @@
 {% block content %}
     <div class="blog-page">
         <div class="blog-page__header">
-            {% image page.image fill-800x450 %}
-            <div class="blog-page__header__content">
+            <div class="blog-page__header__image">
+                {% image page.image fill-800x300 class="desktop" %}
+                {% image page.image fill-300x300 class="mobile" %}
+            </div>
+            <div class="blog-page__header__content rich-text">
                 <h1>{{ page.title|safe }}</h1>
                 <h4>{{ page.publication_date|date:'D d.m.Y' }}</h4>
             </div>

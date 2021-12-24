@@ -3,23 +3,24 @@
 
 .blog-page {
 
-  img {
-    height: auto;
-    width: 100%;
-  }
 
   &__header {
+    img {
+      height: auto;
+      width: 100%;
+    }
+
     font-size: 1.6rem;
     position: relative;
 
     &__content {
       max-width: 65rem;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1rem;
 
       h1 {
         font-size: 1.5em;
-        margin-top: 1em;
+        margin-top: .5em;
         margin-left: 0;
         margin-bottom: 0;
 
@@ -31,6 +32,7 @@
       h4 {
         font-family: vars.$fancy-font;
         color: vars.$text-gray;
+        margin: 0;
       }
     }
 
@@ -46,10 +48,40 @@
       left: 0;
     }
 
+    img.desktop {
+      display: none;
+    }
+
 
   }
 
   &__content {
-    padding: 0 2rem 6.5rem;
+    padding: 1rem;
+    min-height: 50vh;
+
+    iframe {
+      width: 100%;
+      min-height: 400px;
+    }
   }
+
+
+}
+
+@media (min-width: map_get(vars.$screen-size, 'l')) {
+  .blog-page {
+    &__header {
+      img.desktop {
+        width: 85%;
+        height: auto;
+        margin: 10em auto 3em;
+        display: block;
+      }
+
+      img.mobile {
+        display: none;
+      }
+    }
+  }
+
 }
