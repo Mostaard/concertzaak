@@ -7,28 +7,33 @@
 {% endblock %}
 
 {% block content %}
-    {% image page.image min-540x337 %}
+
     <div class="concert">
         <div class="concert__header">
-            <h1>{{ page.title }}</h1>
-            {% if page.ticket_link %}
-                <a class="concert__header__ticket" href="{{ page.ticket_link }}"><span>koop <br>tickets</span><i
-                        class="fas fa-ticket-alt"></i></a>
-            {% endif %}
+            <div class="header-img">
+                {% image page.image fill-800x300 class="desktop" %}
+                {% image page.image fill-300x300 class="mobile" %}
+            </div>
+
         </div>
         <div class="concert__content">
-
-            <div class="concert__content__links">
-                <time><i class="fas fa-calendar-alt"></i> {{ page.concert_date|date:"D d.m.y" }}</time>
-                <a href="{{ page.location.url }}"><i class="fas fa-map-marker-alt"></i>{{ page.location.name }}</a>
-                <a href="{{ page.facebook_link }}"><i class="fab fa-facebook-square"></i>fb event</a>
-            </div>
-            <div class="text-wrapper">
-                <p class="concert__content__introduction">{{ page.introduction }}</p>
-                <div class="concert__content__information">
-                    {{ page.information|richtext }}
+            <h1>{{ page.title }}</h1>
+            <div class="concert__content__actions">
+                <div class="concert__content__links">
+                    <time><i class="fas fa-calendar-alt"></i> {{ page.concert_date|date:"D d.m.y" }}</time>
+                    <a href="{{ page.location.url }}"><i class="fas fa-map-marker-alt"></i>{{ page.location.name }}</a>
+                    <a href="{{ page.facebook_link }}"><i class="fab fa-facebook-square"></i>fb event</a>
                 </div>
+                {% if page.ticket_link %}
+                    <a class="concert__content__ticket" href="{{ page.ticket_link }}"><span>koop <br>tickets</span><i
+                            class="fas fa-ticket-alt"></i></a>
+                {% endif %}
+            </div>
+            <div class=" rich-text">
+                <p class="concert__content__introduction">{{ page.introduction }}</p>
+                {{ page.information|richtext }}
             </div>
         </div>
+    </div>
     </div>
 {% endblock %}

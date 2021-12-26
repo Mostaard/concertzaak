@@ -189,7 +189,7 @@ h2 {
     margin-right: 2rem;
   }
   .concerts .container .concert a {
-    padding-top: 2rem;
+    padding-top: 1rem;
     display: flex;
     flex-wrap: wrap;
     align-items: end;
@@ -231,7 +231,7 @@ h2 {
     justify-content: space-around;
   }
   .concerts .container .concert {
-    width: 25%;
+    width: 24%;
     height: auto;
   }
   .concerts .container .concert img {

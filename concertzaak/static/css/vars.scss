@@ -2,7 +2,6 @@ $background-color: black;
 $text-color: #E8E8E8;
 $text-gray: #B5B5B5;
 $accent-color: #C98B1F;
-$nav-height: 90px;
 $fancy-font: lulo-one, sans-serif;
 $fancy-font-bold: lulo-one-bold, sans-serif;
 $text-font: roboto, sans-serif;
@@ -51,5 +50,20 @@ $screen-size: (
   }
 }
 
+
+@mixin black-gradient() {
+  position: relative;
+  &::after {
+    content: "";
+    width: 100%;
+    height: 10rem;
+    background: rgba(0, 0, 0, .02);
+    background: linear-gradient(180deg, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+  }
+}
 
 
