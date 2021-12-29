@@ -4,9 +4,9 @@
     <link rel='stylesheet' type='text/css' href="{% static 'contact/contact.css' %}">
 {% endblock %}
 {% block content %}
-    <div class="contact">
+    <div class="contact-page">
         <h1>{{ self.title }}</h1>
-        <ul class="contact__details">
+        <ul class="contact-page__details">
             {% for detail in self.details.all %}
                 <li>
                     <i class="{{ detail.font_awesome_icon }}"></i>
