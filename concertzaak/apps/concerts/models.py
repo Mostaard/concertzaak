@@ -41,7 +41,7 @@ class ConcertPage(Page):
     information = RichTextField()
     location = models.ForeignKey(Location, on_delete=models.PROTECT)
     facebook_link = models.URLField()
-    ticket_link = models.URLField()
+    ticket_link = models.URLField(null=True,blank=True)
     image = models.ForeignKey(Image, on_delete=models.PROTECT)
 
     parent_page_types = ['concerts.ConcertsPage']

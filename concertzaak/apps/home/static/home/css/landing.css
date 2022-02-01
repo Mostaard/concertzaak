@@ -251,7 +251,7 @@ h2 {
     left: auto;
     right: 0;
     top: 35vmin;
-    width: calc(100vmax - 110vmin);
+    width: calc(100vmax - 111vmin);
     min-width: 36.5rem;
   }
 }
