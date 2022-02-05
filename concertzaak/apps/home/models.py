@@ -6,6 +6,7 @@ from wagtail.core.models import Page
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.models import Image
 
+from concertzaak.apps.blog.models import BlogPage
 from concertzaak.apps.concerts.models import ConcertPage, ConcertsPage
 
 
@@ -38,9 +39,7 @@ class LandingPage(Page):
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request)
-        context['concerts_page'] = ConcertsPage.objects.first()
-        context['rehearsal_page'] = ConcertsPage.objects.first()
-
+        context['blog'] = BlogPage.objects.filter().exclude(short_description='').order_by('-publication_date')[:3]
         # Footer will be manually added on this page
         context['disable_footer'] = True
         return context

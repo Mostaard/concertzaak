@@ -1,0 +1,11 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+<div class="post">
+    {% image post.image fill-600x450 %}
+    <div class="post__content">
+        <h4>{{ post.publication_date|date:'D d.m.Y' }}</h4>
+        <h3>{{ post.title|safe }}</h3>
+        <p>{{ post.short_description }}</p>
+        <a class="more-info" href="{% pageurl post %}">meer info</a>
+    </div>
+</div>

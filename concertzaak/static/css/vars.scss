@@ -37,7 +37,7 @@ $screen-size: (
   }
 }
 
-@mixin highlighted-hover {
+@mixin highlighted-hover() {
   @include highlighted;
   &:hover {
     transform: translate(-0.125em, -0.125em);
@@ -49,7 +49,6 @@ $screen-size: (
     }
   }
 }
-
 
 @mixin black-gradient() {
   position: relative;

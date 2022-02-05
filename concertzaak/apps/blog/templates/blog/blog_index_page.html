@@ -11,16 +11,9 @@
     <div class="blog-index-page">
         <h1>Wandelgangen</h1>
         <h2>Gehoord in de mechelse wandelgangen</h2>
-        <div class="blog-index-page__posts">
+        <div class="blog posts">
             {% for post in posts %}
-                <div class="post">
-                    {% image post.image fill-600x450 %}
-                    <div class="post__content">
-                        <h4>{{ post.publication_date|date:'D d.m.Y' }}</h4>
-                        <h3>{{ post.title|safe }}</h3>
-                        <a class="more-info" href="{% pageurl post %}">meer info</a>
-                    </div>
-                </div>
+                {% include 'blog/blog_post.html' %}
             {% endfor %}
         </div>
     </div>

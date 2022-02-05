@@ -1,4 +1,5 @@
 @use '../../../../../static/css/vars';
+@use '../../../../blog/static/blog/css/blog-index';
 
 
 body {
@@ -8,7 +9,7 @@ body {
 .landing-container {
   overflow-y: auto;
   max-height: 100vh;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 section {
@@ -101,7 +102,7 @@ h2 {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    max-width: 100%;
+    width: 100%;
     -ms-overflow-style: none;
     align-items: start;
     scrollbar-width: none;
@@ -181,6 +182,24 @@ h2 {
 
 }
 
+.blog {
+  padding-top: 10em;
+  margin: 0 2rem;
+
+}
+
+footer {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 8rem;
+  padding-bottom: 0;
+  scroll-snap-align: start;
+  position: relative;
+
+  .logo {
+    display: none;
+  }
+}
 
 @media (min-width: map_get(vars.$screen-size, 'm')) {
 
@@ -255,11 +274,15 @@ h2 {
     height: 100vmin;
     padding: 6rem 4rem 2rem;
 
+    .more-info a {
+      margin-top: 0.5em;
+    }
+
     .container {
       justify-content: space-around;
 
       .concert {
-        width: 24%;
+        width: 25%;
         height: auto;
 
 
@@ -291,22 +314,16 @@ h2 {
     }
   }
 
-
-}
-
-footer {
-  min-height: 100vh;
-  box-sizing: border-box;
-  padding-top: 8rem;
-  padding-bottom: 0;
-  scroll-snap-align: start;
-  position: relative;
-
-  .logo {
-    display: none;
+  .blog {
+    width: 90%;
+    margin: 0 auto;
   }
+
+
 }
 
 @media (min-width: map_get(vars.$screen-size, 'xl')) {
-
+  .posts {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

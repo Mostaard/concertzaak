@@ -27,7 +27,7 @@
                 </a>
                 {% if page.concerts_page.specific.get_concerts %}
                     <div class="container">
-                        {% for concert in concerts_page.get_concerts %}
+                        {% for concert in page.concerts_page.specific.get_concerts %}
                             <div class="concert">
                                 <a href="{% pageurl concert %}">
                                     <h3>{{ concert.title }}</h3>
@@ -44,7 +44,7 @@
                 {% endif %}
                 <div class="more-info">
                     {% if page.concerts_page %}
-                        <a class="rehearsal__more" href="{% pageurl concerts_page %}">Alle concerten <i
+                        <a class="rehearsal__more" href="{% pageurl page.concerts_page %}">Alle concerten <i
                                 class="fas fa-angle-double-right"></i></a>
                     {% endif %}
                 </div>
@@ -62,6 +62,11 @@
                             class="fas fa-angle-double-right"></i></a>
                 </div>
             </div>
+        </section>
+        <section class="blog posts" id="blog">
+            {% for post in blog %}
+                {% include 'blog/blog_post.html' %}
+            {% endfor %}
         </section>
         {% footer %}
     </div>

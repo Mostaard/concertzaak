@@ -18,13 +18,14 @@ class BlogIndexPage(Page):
 
 class BlogPage(Page):
     parent_page_types = ['blog.BlogIndexPage']
-
     publication_date = models.DateField(default=timezone.now)
     content = RichTextField(default='')
+    short_description = models.TextField(max_length=150, default='')
     image = models.ForeignKey(Image, on_delete=models.PROTECT)
 
     content_panels = Page.content_panels + [
         FieldPanel('publication_date'),
         FieldPanel('content'),
+        FieldPanel('short_description'),
         ImageChooserPanel('image'),
     ]
