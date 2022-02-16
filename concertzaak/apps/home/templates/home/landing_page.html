@@ -27,7 +27,7 @@
                 </a>
                 {% if page.concerts_page.specific.get_concerts %}
                     <div class="container">
-                        {% for concert in page.concerts_page.specific.get_concerts %}
+                        {% for concert in page.concerts_page.specific.get_concerts|slice:"0:3" %}
                             <div class="concert">
                                 <a href="{% pageurl concert %}">
                                     <h3>{{ concert.title }}</h3>
