@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+from django.utils import timezone
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.core.fields import RichTextField
 from wagtail.core.models import Page
@@ -23,16 +24,17 @@ class Location(models.Model):
 
 
 class ConcertsPage(Page):
-    no_concerts = models.CharField(max_length=150, help_text='Bericht wanneer er geen concerten ingepland zijn',
+    no_concerts = models.CharField(max_length=150,
+                                   help_text='Bericht wanneer er geen concerten ingepland zijn',
                                    default='', blank=False)
 
     content_panels = Page.content_panels + [
         FieldPanel('no_concerts'),
-
     ]
 
     def get_concerts(self):
-        return ConcertPage.objects.live().descendant_of(self)
+        return ConcertPage.objects.filter(
+            concert_date__gte=timezone.now()).live().descendant_of(self)
 
 
 class ConcertPage(Page):
@@ -41,10 +43,13 @@ class ConcertPage(Page):
     information = RichTextField()
     location = models.ForeignKey(Location, on_delete=models.PROTECT)
     facebook_link = models.URLField()
-    ticket_link = models.URLField(null=True,blank=True)
+    ticket_link = models.URLField(null=True, blank=True)
     image = models.ForeignKey(Image, on_delete=models.PROTECT)
 
     parent_page_types = ['concerts.ConcertsPage']
+
+    class Meta:
+        ordering = ['concert_date']
 
     content_panels = Page.content_panels + [
         FieldPanel('concert_date'),
