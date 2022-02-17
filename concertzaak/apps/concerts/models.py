@@ -34,7 +34,7 @@ class ConcertsPage(Page):
 
     def get_concerts(self):
         return ConcertPage.objects.filter(
-            concert_date__gte=timezone.now()).live().descendant_of(self)
+            concert_date__gte=timezone.now()).order_by('concert_date').live().descendant_of(self)
 
 
 class ConcertPage(Page):
