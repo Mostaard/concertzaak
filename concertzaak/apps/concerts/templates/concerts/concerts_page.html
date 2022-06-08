@@ -20,5 +20,19 @@
                 {% image concert.image fill-600x450 %}
             </div>
         {% endfor %}
+        {% if page.get_old_concerts %}
+            <h2>Schoon archief</h2>
+        {% endif %}
+        {% for concert in page.get_old_concerts %}
+            <div class="concert">
+                <a href="{% pageurl concert %}">
+                    <h3>{{ concert.concert_date }}</h3>
+                    <h2>{{ concert.title }}</h2>
+                    <p>{{ concert.introduction }}</p>
+                    <p class="more-info">meer info</p>
+                </a>
+                {% image concert.image fill-600x450 %}
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
