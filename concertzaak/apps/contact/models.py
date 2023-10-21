@@ -1,6 +1,6 @@
 from modelcluster.fields import ParentalKey
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
-from wagtail.core.models import Page, Orderable
+from wagtail.admin.panels import FieldPanel, InlinePanel
+from wagtail.models import Page, Orderable
 from django.db import models
 
 

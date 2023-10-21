@@ -1,9 +1,8 @@
 from django.db import models
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, PageChooserPanel
-from wagtail.core.fields import RichTextField
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel, PageChooserPanel
+from wagtail.fields import RichTextField
 
-from wagtail.core.models import Page
-from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.models import Page
 from wagtail.images.models import Image
 
 from concertzaak.apps.blog.models import BlogPage
@@ -22,7 +21,7 @@ class LandingPage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('landing_text'),
-                ImageChooserPanel('landing_image'),
+                FieldPanel('landing_image'),
             ],
             heading='Landing',
         ),
@@ -30,8 +29,8 @@ class LandingPage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('rehearsal_text'),
-                ImageChooserPanel('rehearsal_image'),
-                PageChooserPanel('rehearsal_page')
+                FieldPanel('rehearsal_image'),
+                FieldPanel('rehearsal_page')
             ],
             heading='Repeteren',
         )

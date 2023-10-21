@@ -2,12 +2,10 @@ from django.db import models
 
 # Create your models here.
 from django.utils import timezone
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
-from wagtail.core.fields import RichTextField
-from wagtail.core.models import Page
-from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel
+from wagtail.fields import RichTextField
+from wagtail.models import Page
 from wagtail.images.models import Image
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
 
@@ -61,10 +59,10 @@ class ConcertPage(Page):
         FieldPanel('concert_date'),
         FieldPanel('introduction'),
         FieldPanel('information'),
-        ImageChooserPanel('image'),
+        FieldPanel('image'),
         MultiFieldPanel(
             [
-                SnippetChooserPanel('location'),
+                FieldPanel('location'),
                 FieldPanel('facebook_link'),
                 FieldPanel('ticket_link'),
             ],

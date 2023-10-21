@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -19,8 +19,8 @@ class Migration(migrations.Migration):
             name='LandingPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('landing_text', wagtail.core.fields.RichTextField(default='', max_length=160)),
-                ('rehearsal_text', wagtail.core.fields.RichTextField(default='', max_length=200)),
+                ('landing_text', wagtail.fields.RichTextField(default='', max_length=160)),
+                ('rehearsal_text', wagtail.fields.RichTextField(default='', max_length=200)),
                 ('concerts_page', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='+', to='wagtailcore.page')),
                 ('landing_image', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, related_name='+', to='wagtailimages.image')),
                 ('rehearsal_image', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, related_name='+', to='wagtailimages.image')),

@@ -3,7 +3,7 @@
 from django.db import migrations, models
 import django.db.models.deletion
 import django.utils.timezone
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
                 ('publication_date', models.DateField(default=django.utils.timezone.now)),
-                ('content', wagtail.core.fields.RichTextField(default='')),
+                ('content', wagtail.fields.RichTextField(default='')),
                 ('image', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='wagtailimages.image')),
             ],
             options={
