@@ -8,22 +8,15 @@
 
 {% block content %}
     <h1>{{ page.title }}</h1>
-    <div class="concerts">
-        {% for concert in page.get_concerts %}
-            <div class="concert">
-                <a href="{% pageurl concert %}">
-                    <h3>{{ concert.concert_date }}</h3>
-                    <h2>{{ concert.title }}</h2>
-                    <p>{{ concert.introduction }}</p>
-                    <p class="more-info">meer info</p>
-                </a>
-                {% image concert.image fill-600x450 %}
-            </div>
-        {% endfor %}
-        {% if page.get_old_concerts %}
-            <h2>Schoon archief</h2>
+    <div class="actions">
+        {% if is_archive %}
+            <a href="?">Toekomst</a>
+        {% else %}
+            <a href="?archive">Archief</a>
         {% endif %}
-        {% for concert in page.get_old_concerts %}
+    </div>
+    <div class="concerts">
+        {% for concert in concerts %}
             <div class="concert">
                 <a href="{% pageurl concert %}">
                     <h3>{{ concert.concert_date }}</h3>
@@ -35,4 +28,29 @@
             </div>
         {% endfor %}
     </div>
+    {% if concerts.has_other_pages %}
+    <div class="paginator">
+        {% if concerts.has_previous %}
+            <a href="?{{ is_archive|yesno:'archive&,' }}1">
+                <i class="fas fa-fast-backward"></i> first
+            </a>
+            <a href="?{{ is_archive|yesno:'archive&,' }}{{ concerts.previous_page_number }}">
+                <i class="fas fa-step-backward"></i>
+                previous
+            </a>
+        {% endif %}
+        <div class="current">
+            Page {{ concerts.number }} of {{ concerts.paginator.num_pages }}
+        </div>
+        {% if concerts.has_next %}
+            <a href="?{{ is_archive|yesno:'archive&,' }}page={{ concerts.next_page_number }}">
+                next
+                <i class="fas fa-step-forward"></i>
+            </a>
+            <a href="?{{ is_archive|yesno:'archive&,' }}page={{ concerts.paginator.num_pages }}">
+                last <i class="fas fa-fast-forward"></i>
+            </a>
+        {% endif %}
+    </div>
+    {% endif %}
 {% endblock %}

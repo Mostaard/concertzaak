@@ -4,6 +4,7 @@ h1 {
 
 .concerts {
   padding-bottom: 6.5rem;
+  padding-top: 2rem;
 }
 .concerts .concert {
   margin-bottom: 3rem;
@@ -74,6 +75,55 @@ h1 {
   line-height: 140%;
 }
 
+.actions a {
+  font-family: lulo-one-bold, sans-serif;
+  color: #E8E8E8;
+  display: inline-block;
+  position: relative;
+  transition: transform 120ms ease-in-out;
+  font-size: 1.4em;
+}
+.actions a:after {
+  transition: inherit;
+  content: "";
+  display: block;
+  position: absolute;
+  background: #C98B1F;
+  top: 0.5em;
+  left: 0.5em;
+  width: 99%;
+  height: 1.1em;
+  z-index: -1;
+  text-transform: uppercase;
+  font-size: inherit;
+}
+.actions a:hover {
+  transform: translate(-0.125em, -0.125em);
+}
+.actions a:hover::after {
+  transform: translate(0.25em, 0.25em);
+}
+.actions a:after {
+  opacity: 0;
+  transition: opacity 150ms linear, transform 150ms ease-in-out;
+}
+.actions a:hover::after {
+  opacity: 1;
+}
+
+.paginator {
+  display: flex;
+  justify-content: center;
+  padding: 1em 0;
+  gap: 1em;
+  margin: 0 auto;
+}
+.paginator a, .paginator .current {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 @media screen and (min-width: 576px) {
   .concerts .concert {
     display: flex;
@@ -92,6 +142,15 @@ h1 {
 @media screen and (min-width: 768px) {
   h1 {
     margin-left: 10%;
+  }
+
+  .paginator {
+    max-width: 80em;
+  }
+
+  .actions {
+    padding: 2em 2em 0;
+    margin: 0 auto;
   }
 
   .concerts {
@@ -121,7 +180,7 @@ h1 {
   }
 }
 @media (min-width: 1200px) {
-  .concerts {
+  .concerts, .actions, .paginator {
     font-size: 1.3em;
   }
 }

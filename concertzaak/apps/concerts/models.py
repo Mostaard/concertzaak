@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.db import models
 
 # Create your models here.
@@ -30,6 +31,15 @@ class ConcertsPage(Page):
         FieldPanel('no_concerts'),
     ]
 
+    def get_context(self, request, *args, **kwargs):
+        is_archive = request.GET.get('archive', False) == ''
+        page = request.GET.get('page', 1)
+        context = super().get_context(request)
+        concerts = self.get_old_concerts() if is_archive else self.get_concerts()
+        context['concerts'] = Paginator(concerts, 10).get_page(page)
+        context['is_archive'] = is_archive
+        return context
+
     def get_concerts(self):
         return ConcertPage.objects.filter(
             concert_date__gte=timezone.now()).order_by(
@@ -38,7 +48,7 @@ class ConcertsPage(Page):
     def get_old_concerts(self):
         return ConcertPage.objects.filter(
             concert_date__lt=timezone.now()).order_by(
-            '-concert_date').live().descendant_of(self)[:10]
+            '-concert_date').live().descendant_of(self)
 
 
 class ConcertPage(Page):
