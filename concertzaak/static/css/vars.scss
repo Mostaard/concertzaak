@@ -50,6 +50,23 @@ $screen-size: (
   }
 }
 
+@mixin none-to-highlighted-hover() {
+  @include highlighted-hover;
+
+  &:after {
+    opacity: 0;
+    transition: opacity 150ms linear, transform 150ms ease-in-out;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+}
+
+
 @mixin black-gradient() {
   position: relative;
   &::after {

@@ -3,6 +3,16 @@
 {% block extra_css %}
     <link rel='stylesheet' type='text/css' href="{% static 'contact/contact.css' %}">
 {% endblock %}
+
+{% block extra_js %}
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        function onSubmit(token) {
+            console.log(token)
+            document.getElementById("contact-form").submit();
+        }
+    </script>
+{% endblock %}
 {% block content %}
     <div class="contact-page">
         <h1>{{ self.title }}</h1>
@@ -10,10 +20,18 @@
             {% for detail in self.details.all %}
                 <li>
                     <i class="{{ detail.font_awesome_icon }}"></i>
-                    <span> {{ detail.tag }}</span>
+                    {% if details.tag %}
+                        <span>
+                            {{ detail.tag }} &nbsp%
+                        </span>
+                    {% endif %}
                     {{ detail.description|safe }}
                 </li>
             {% endfor %}
         </ul>
+        <div class="contact-page__form">
+            {% include 'contact/form.html' %}
+        </div>
     </div>
 {% endblock %}
+

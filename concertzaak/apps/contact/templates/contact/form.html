@@ -1,0 +1,46 @@
+{% if sent_mail %}
+    <p class="thanks">
+        Bedankt voor uw bericht, we nemen zo snel mogelijk contact met u op.
+    </p>
+{% else %}
+    <form class="contact-form" id="contact-form" method="POST">
+        <h3>Contacteer ons</h3>
+        <div class="contact-form__details">
+            <div class="contact-form__details__name">
+                <div class="field">
+                    {{ form.first_name.label_tag }}
+                    {{ form.first_name }}
+                </div>
+                <div class="field">
+                    {{ form.last_name.label_tag }}
+                    {{ form.last_name }}
+                </div>
+            </div>
+            <div class="contact-form__details_email field">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+        </div>
+        <div class="contact-form__message field">
+            {{ form.message.label_tag }}
+            {{ form.message }}
+            {{ form.email.errors }}
+        </div>
+        {% if form.recaptcha_token.errors or form.non_field_errors %}
+            <div class="contact-form__errors">
+                {{ form.recaptcha_token.errors }}
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+        {% csrf_token %}
+        <button type="submit"
+                data-sitekey="6LdVCvAoAAAAAK4n9zUFaGSxNxjdCyLJDGVzNFBJ"
+                data-callback='onSubmit'
+                data-action='submit'
+                class="contact-form__send g-recaptcha"
+                id="contact-form-button">
+            versturen
+        </button>
+    </form>
+{% endif %}

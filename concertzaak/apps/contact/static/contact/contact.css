@@ -3,12 +3,93 @@
   max-width: 65rem;
   margin: 0 auto;
 }
+.contact-page .thanks {
+  font-size: 2em;
+  padding-top: 2rem;
+}
+.contact-page h3 {
+  margin-top: 3em;
+}
 .contact-page__details {
   font-size: 1.6em;
   list-style-type: none;
+  padding-top: 1em;
 }
 .contact-page__details li {
   margin-bottom: 0.5em;
+  display: flex;
+}
+.contact-page__details li:first-child {
+  font-weight: bold;
+}
+.contact-page__details li i {
+  min-width: 2em;
+  display: block;
+}
+.contact-page .contact-form {
+  font-size: 1.6em;
+  margin-bottom: 6rem;
+}
+.contact-page .contact-form .error-list {
+  margin-top: 0.5em;
+}
+.contact-page .contact-form .field {
+  padding-top: 1em;
+}
+.contact-page .contact-form .field label {
+  display: block;
+}
+.contact-page .contact-form .field input, .contact-page .contact-form .field textarea {
+  width: 100%;
+  padding: 0.5em;
+  background: black;
+  color: white;
+  border: 1px solid;
+  border-radius: 0.2rem;
+  outline: none !important;
+  transition: all 150ms ease-in-out;
+}
+.contact-page .contact-form .field input:focus, .contact-page .contact-form .field textarea:focus {
+  border: 1px solid #C98B1F;
+}
+.contact-page .contact-form button {
+  margin-top: 2rem;
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: lulo-one-bold, sans-serif;
+  color: #E8E8E8;
+  display: inline-block;
+  position: relative;
+  transition: transform 120ms ease-in-out;
+}
+.contact-page .contact-form button:after {
+  transition: inherit;
+  content: "";
+  display: block;
+  position: absolute;
+  background: #C98B1F;
+  top: 0.5em;
+  left: 0.5em;
+  width: 99%;
+  height: 1.1em;
+  z-index: -1;
+  text-transform: uppercase;
+  font-size: inherit;
+}
+.contact-page .contact-form button:hover {
+  transform: translate(-0.125em, -0.125em);
+}
+.contact-page .contact-form button:hover::after {
+  transform: translate(0.25em, 0.25em);
+}
+.contact-page .contact-form button:after {
+  opacity: 0;
+  transition: opacity 150ms linear, transform 150ms ease-in-out;
+}
+.contact-page .contact-form button:hover::after {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=contact.css.map */

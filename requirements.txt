@@ -1,4 +1,5 @@
-Django==4.2.6
-wagtail==5.1.3
+Django==4.2.7
+wagtail==5.2
 wagtailmenus==3.1.9
 psycopg2==2.9.9
+requests==2.31.0
