@@ -16,6 +16,9 @@
 {% block content %}
     <div class="contact-page">
         <h1>{{ self.title }}</h1>
+        <div class="contact-page__form">
+            {% include 'contact/form.html' %}
+        </div>
         <ul class="contact-page__details">
             {% for detail in self.details.all %}
                 <li>
@@ -29,9 +32,6 @@
                 </li>
             {% endfor %}
         </ul>
-        <div class="contact-page__form">
-            {% include 'contact/form.html' %}
-        </div>
     </div>
 {% endblock %}
 

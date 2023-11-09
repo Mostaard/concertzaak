@@ -84,12 +84,5 @@
 .contact-page .contact-form button:hover::after {
   transform: translate(0.25em, 0.25em);
 }
-.contact-page .contact-form button:after {
-  opacity: 0;
-  transition: opacity 150ms linear, transform 150ms ease-in-out;
-}
-.contact-page .contact-form button:hover::after {
-  opacity: 1;
-}
 
 /*# sourceMappingURL=contact.css.map */
