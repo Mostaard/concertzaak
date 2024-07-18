@@ -179,3 +179,5 @@ LOGGING = {
 INTERNAL_IPS = (
     '127.0.0.1',
 )
+
+WAGTAILADMIN_BASE_URL = 'www.concertzaak.be/admin'
