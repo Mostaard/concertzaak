@@ -60,8 +60,6 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  -webkit-transition: max-height 500ms ease-in-out, opacity 500ms linear;
-  -moz-transition: max-height 500ms ease-in-out, opacity 500ms linear;
   transition: max-height 500ms ease-in-out, opacity 500ms linear;
 }
 .guides .guide__content h3 {
@@ -116,6 +114,4 @@
   .guides .guide:nth-of-type(even) .guide__title {
     flex-direction: row-reverse;
   }
-}
-
-/*# sourceMappingURL=guides.css.map */
+}/*# sourceMappingURL=guides.css.map */

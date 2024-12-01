@@ -143,17 +143,14 @@ h1 {
   h1 {
     margin-left: 10%;
   }
-
   .paginator {
     max-width: 80em;
   }
-
   .actions {
     padding: 2em 2em 0;
     max-width: 80em;
     margin: 0 auto;
   }
-
   .concerts {
     max-width: 80em;
     padding: 0 2rem 6.5rem;
@@ -184,6 +181,4 @@ h1 {
   .concerts, .actions, .paginator {
     font-size: 1.3em;
   }
-}
-
-/*# sourceMappingURL=concerts.css.map */
+}/*# sourceMappingURL=concerts.css.map */

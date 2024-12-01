@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["basic-page.scss"],"names":[],"mappings":"AAGA;EACE;;AAEA;EACE;EACA","file":"basic-page.css"}
+{"version":3,"sources":["basic-page.scss","basic-page.css"],"names":[],"mappings":"AAGA;EACE,wBAAA;ACFF;ADIE;EACE,gBAAA;EACA,kBAAA;ACFJ","file":"basic-page.css"}

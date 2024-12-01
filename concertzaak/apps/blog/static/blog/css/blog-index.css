@@ -71,7 +71,6 @@
     padding-top: 14em;
     padding-bottom: 10em;
   }
-
   .posts {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -103,6 +102,4 @@
   .posts {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-}
-
-/*# sourceMappingURL=blog-index.css.map */
+}/*# sourceMappingURL=blog-index.css.map */
