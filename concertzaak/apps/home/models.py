@@ -6,14 +6,13 @@ from wagtail.models import Page
 from wagtail.images.models import Image
 
 from concertzaak.apps.blog.models import BlogPage
-from concertzaak.apps.concerts.models import ConcertPage, ConcertsPage
 
 
 class LandingPage(Page):
-    landing_text = RichTextField(features=['bold'], default='', max_length=160)
+    landing_text = RichTextField(features=['bold', 'highlight'], default='', max_length=160)
     landing_image = models.ForeignKey(Image, on_delete=models.PROTECT, null=True, related_name='+')
     concerts_page = models.ForeignKey(Page, on_delete=models.PROTECT, null=True, blank=True, related_name='+')
-    rehearsal_text = RichTextField(max_length=200, features=['bold'], default='')
+    rehearsal_text = RichTextField(max_length=200, features=['bold', 'highlight'], default='')
     rehearsal_image = models.ForeignKey(Image, on_delete=models.PROTECT, null=True, related_name='+')
     rehearsal_page = models.ForeignKey(Page, on_delete=models.PROTECT, null=True, blank=True, related_name='+')
 

@@ -12,7 +12,7 @@ class GuidesIndexPage(Page):
 
 
 class GuidePage(Page):
-    introduction = RichTextField(max_length=300, features=['bold', 'link'], default='')
+    introduction = RichTextField(max_length=300, features=['bold', 'highlight', 'link'], default='')
 
     parent_page_types = ['guides.GuidesIndexPage']
 
@@ -25,7 +25,7 @@ class GuidePage(Page):
 class Step(Orderable):
     page = ParentalKey(GuidePage, on_delete=models.CASCADE, related_name='steps')
     title = models.CharField(max_length=100, default='')
-    description = RichTextField(max_length=300, features=['bold', 'link'], default='')
+    description = RichTextField(max_length=300, features=['bold', 'highlight', 'link'], default='')
 
     panels = [
         FieldPanel('title'),

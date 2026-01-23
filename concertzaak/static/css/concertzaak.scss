@@ -2,6 +2,7 @@
 @import "navigation";
 @import "socials";
 @import "sponsors";
+@import "spazz";
 
 @font-face {
   font-family: lulo-one;
@@ -13,7 +14,7 @@
   src: url(../fonts/lulo-one-bold.otf);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 
 
 * {
@@ -41,6 +42,10 @@ a {
 
 b {
   @include vars.highlighted;
+}
+
+strong {
+  font-weight: 700;
 }
 
 
@@ -284,24 +289,3 @@ $filters: (
                 ),
         )
 );
-
-@keyframes spazz {
-  @for $i from 0 through 100 {
-    @if (random(100) < 66.6) {
-      #{$i}% {
-        $filter_css_value: '';
-        @each $filter, $filter_props in $filters {
-          @if ((random(100) / 100) < map-get($filter_props, probability)) {
-            $range: map-get($filter_props, range);
-            $min: map-get($range, min);
-            $max: map-get($range, max);
-            $filter_css_value: $filter_css_value + ' #{$filter}(#{random(100) / 100 * ($max - $min) + $min}#{map-get($filter_props, units)})';
-          }
-        }
-        filter: unquote($filter_css_value);
-        background-color: hsl(random(360), 100%, 70%);
-        transform: translate(#{random(30) - 15}px, #{random(30) - 15}px) scale(random(20) / 100 + 1.05);
-      }
-    }
-  }
-}

@@ -9,7 +9,7 @@ from wagtail.snippets.models import register_snippet
 
 class BasicPage(Page):
     content = RichTextField(
-        features=['h2', 'h3', 'bold', 'italic', 'link', 'image', 'ul'])
+        features=['h2', 'h3', 'bold', 'highlight', 'italic', 'link', 'image', 'ul'])
 
     content_panels = Page.content_panels + [
         FieldPanel('content'),
