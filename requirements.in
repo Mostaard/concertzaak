@@ -1,0 +1,6 @@
+# Core dependencies - constrained for PostgreSQL 12 compatibility
+Django>=5.0,<5.1  # Django 5.0 LTS supports PostgreSQL 12
+wagtail>=6.2,<7.0  # Wagtail 6.2+ supports Django 5.0
+wagtailmenus
+psycopg2
+requests
