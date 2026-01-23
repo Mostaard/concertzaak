@@ -76,6 +76,14 @@ nav {
       font-family: vars.$fancy-font;
       text-transform: uppercase;
 
+      > li {
+        display: block;
+      }
+
+      > li:nth-child(n + 2) {
+        display: none;
+      }
+
       .dropdown-menu {
         position: absolute;
         top: 100%;

@@ -64,6 +64,12 @@ nav .desktop-menu .navbar-nav {
   font-family: lulo-one, sans-serif;
   text-transform: uppercase;
 }
+nav .desktop-menu .navbar-nav > li {
+  display: block;
+}
+nav .desktop-menu .navbar-nav > li:nth-child(n+2) {
+  display: none;
+}
 nav .desktop-menu .navbar-nav .dropdown-menu {
   position: absolute;
   top: 100%;
