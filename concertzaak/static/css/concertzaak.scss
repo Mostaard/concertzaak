@@ -215,6 +215,10 @@ h1 {
 }
 
 @media screen and (min-width: map_get(vars.$screen-size, 'l')) {
+  body {
+    --landing-image-width: min(100vmin, 60vw);
+  }
+
   footer {
     font-size: 1.5em;
 

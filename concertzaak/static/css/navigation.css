@@ -237,7 +237,7 @@ nav.opened .logo {
     display: flex;
   }
   nav .logo {
-    left: calc(100vmin - 15rem);
+    left: calc(var(--landing-image-width, 100vmin) - 14rem - 2rem);
   }
   nav .logo img {
     width: 14rem;

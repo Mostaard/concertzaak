@@ -250,7 +250,7 @@ nav {
     }
 
     .logo {
-      left: 48vw;
+      left: calc(var(--landing-image-width, 100vmin) - 14rem - 2rem);
 
       img {
         width: 14rem;

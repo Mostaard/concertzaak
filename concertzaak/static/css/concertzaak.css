@@ -238,7 +238,7 @@ nav.opened .logo {
     display: flex;
   }
   nav .logo {
-    left: 48vw;
+    left: calc(var(--landing-image-width, 100vmin) - 14rem - 2rem);
   }
   nav .logo img {
     width: 14rem;
@@ -824,6 +824,9 @@ h1:after {
   }
 }
 @media screen and (min-width: 992px) {
+  body {
+    --landing-image-width: min(100vmin, 60vw);
+  }
   footer {
     font-size: 1.5em;
   }
