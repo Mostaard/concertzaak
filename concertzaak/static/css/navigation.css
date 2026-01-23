@@ -67,7 +67,7 @@ nav .desktop-menu .navbar-nav {
 nav .desktop-menu .navbar-nav > li {
   display: block;
 }
-nav .desktop-menu .navbar-nav > li:nth-child(n+2) {
+nav .desktop-menu .navbar-nav > li:nth-child(n+3) {
   display: none;
 }
 nav .desktop-menu .navbar-nav .dropdown-menu {
