@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'concertzaak.apps.blog',
     'concertzaak.apps.guides',
     'concertzaak.apps.home',
+    'concertzaak.apps.residents',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',

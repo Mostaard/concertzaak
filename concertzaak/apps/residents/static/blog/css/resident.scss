@@ -1,9 +1,7 @@
 @use '../../../../../static/css/vars';
 
 
-.blog-page {
-
-
+.resident-page {
   &__header {
     @include vars.black-gradient;
     font-size: 1.6rem;

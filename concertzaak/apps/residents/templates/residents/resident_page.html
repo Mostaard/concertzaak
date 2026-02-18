@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+{% block extra_css %}
+    <link rel='stylesheet' type='text/css' href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="blog-page">
+        <div class="blog-page__header">
+            <div class="header-img">
+                {% image page.image fill-800x300 class="desktop" %}
+                {% image page.image fill-300x300 class="mobile" %}
+            </div>
+            <div class="blog-page__header__content rich-text">
+                <h1>{{ page.title|safe }}</h1>
+            </div>
+        </div>
+        <div class="blog-page__content rich-text">
+            {{ page.content|richtext }}
+        </div>
+    </div>
+{% endblock %}
