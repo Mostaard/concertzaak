@@ -1,25 +1,51 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags %}
+{% load wagtailembeds_tags %}
 {% load wagtailimages_tags %}
 {% load static %}
+
 {% block extra_css %}
-    <link rel='stylesheet' type='text/css' href="{% static 'blog/css/blog.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'blog/css/resident.css' %}">
 {% endblock %}
 
-
 {% block content %}
-    <div class="blog-page">
-        <div class="blog-page__header">
-            <div class="header-img">
-                {% image page.image fill-800x300 class="desktop" %}
-                {% image page.image fill-300x300 class="mobile" %}
+    <article class="resident-page">
+        <section class="resident-page__intro">
+            <div class="resident-page__image">
+                {% image page.image fill-700x700 %}
             </div>
-            <div class="blog-page__header__content rich-text">
-                <h1>{{ page.title|safe }}</h1>
+            <div class="resident-page__info">
+                <h1>{{ page.title }}</h1>
+                {% if page.genre %}
+                    <p class="resident-page__genre">{{ page.genre }}</p>
+                {% endif %}
+                {% if page.bio %}
+                    <p class="resident-page__bio">{{ page.bio }}</p>
+                {% endif %}
+                {% if page.more_info_url %}
+                    <p class="resident-page__more-info"><a href="{{ page.more_info_url }}" target="_blank" rel="noopener noreferrer">More info</a></p>
+                {% endif %}
             </div>
-        </div>
-        <div class="blog-page__content rich-text">
-            {{ page.content|richtext }}
-        </div>
-    </div>
+        </section>
+
+        <section class="resident-page__media">
+            {% if page.video_url %}
+                <div class="resident-page__embed resident-page__embed--video">
+                    {% embed page.video_url %}
+                </div>
+            {% endif %}
+
+            {% if page.spotify_url %}
+                <div class="resident-page__embed resident-page__embed--spotify">
+                    {% embed page.spotify_url %}
+                </div>
+            {% endif %}
+        </section>
+
+        {% if page.content %}
+            <section class="resident-page__content rich-text">
+                {{ page.content|richtext }}
+            </section>
+        {% endif %}
+    </article>
 {% endblock %}

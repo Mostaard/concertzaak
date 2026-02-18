@@ -17,11 +17,19 @@ class ResidentIndexPage(Page):
 class ResidentPage(Page):
     parent_page_types = ['residents.ResidentIndexPage']
     content = RichTextField(default='')
-    short_description = models.TextField(max_length=150, default='')
+    bio = models.TextField(max_length=150, default='')
+    genre = models.TextField(max_length=40, default='')
     image = models.ForeignKey(Image, on_delete=models.PROTECT)
+    video_url = models.URLField(blank=True)
+    spotify_url = models.URLField(blank=True)
+    more_info_url = models.URLField(blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('content'),
-        FieldPanel('short_description'),
+        FieldPanel('bio'),
+        FieldPanel('genre'),
         FieldPanel('image'),
+        FieldPanel('video_url'),
+        FieldPanel('spotify_url'),
+        FieldPanel('more_info_url'),
     ]
