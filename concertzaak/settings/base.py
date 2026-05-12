@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'concertzaak.apps.contact',
     'concertzaak.apps.core.apps.CoreConfig',
     'concertzaak.apps.blog',
+    'concertzaak.apps.faq',
     'concertzaak.apps.guides',
     'concertzaak.apps.home',
     'concertzaak.apps.residents',

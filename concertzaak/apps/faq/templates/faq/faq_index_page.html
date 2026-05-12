@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block extra_css %}
+    <link rel='stylesheet' type='text/css' href="{% static 'faq/faq.css' %}">
+{% endblock %}
+
+{% block body_class %}faq-body{% endblock %}
+
+{% block content %}
+    <main class="faq-index">
+        <header class="faq-index__header">
+            <h1>{{ page.title }}</h1>
+            <label class="faq-search" for="faq-search-input">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input id="faq-search-input"
+                       class="faq-search__input"
+                       type="search"
+                       placeholder="Zoek in de FAQ"
+                       autocomplete="off">
+            </label>
+        </header>
+
+        <section class="faq-results" aria-live="polite">
+            {% for result in faq_results %}
+                <a class="faq-result"
+                   href="{% pageurl result.page %}"
+                   data-faq-result
+                   data-search-text="{{ result.search_text|escape }}">
+                    <span class="faq-result__title">{{ result.page.title }}</span>
+                    <span class="faq-result__text">{{ result.page.short_text }}</span>
+                    {% if result.page.featured %}
+                        <span class="faq-result__featured">Uitgelicht</span>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </section>
+
+        <p class="faq-empty" data-faq-empty hidden>Geen resultaten gevonden.</p>
+    </main>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="{% static 'faq/faq.js' %}"></script>
+{% endblock %}

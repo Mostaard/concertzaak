@@ -1,0 +1,129 @@
+.faq-index,
+.faq-page {
+  min-height: calc(100vh - 22rem);
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 13rem 2rem 6rem;
+  box-sizing: border-box;
+}
+
+.faq-index__header {
+  text-align: center;
+}
+.faq-index__header h1 {
+  margin: 0 auto 4rem;
+}
+
+.faq-search {
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto 4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 1.8rem;
+  border: 0.2rem solid #C98B1F;
+  box-sizing: border-box;
+  background: black;
+}
+.faq-search i {
+  color: #C98B1F;
+  font-size: 1.8rem;
+  flex: 0 0 auto;
+}
+
+.faq-search__input {
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: #E8E8E8;
+  background: transparent;
+  font-family: roboto, sans-serif;
+  font-size: 1.8rem;
+}
+.faq-search__input::placeholder {
+  color: #B5B5B5;
+}
+
+.faq-results {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.faq-result {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.8rem;
+  border: 0;
+  color: #E8E8E8;
+  background: #141414;
+  box-sizing: border-box;
+  transition: background-color 150ms ease-in-out, transform 150ms ease-in-out;
+}
+.faq-result:hover, .faq-result:focus {
+  background: #1f1f1f;
+  transform: translateY(-0.2rem);
+}
+
+.faq-result__title {
+  color: #C98B1F;
+  font-family: lulo-one-bold, sans-serif;
+  font-size: 1.8rem;
+  line-height: 140%;
+}
+
+.faq-result__text {
+  color: #E8E8E8;
+  font-size: 1.6rem;
+  line-height: 150%;
+}
+
+.faq-result__featured {
+  justify-self: start;
+  color: black;
+  background: #C98B1F;
+  font-family: lulo-one-bold, sans-serif;
+  font-size: 1rem;
+  padding: 0.6rem 0.8rem;
+  text-transform: uppercase;
+}
+
+.faq-empty {
+  max-width: 60rem;
+  margin: 3rem auto 0;
+  color: #B5B5B5;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.faq-page__back {
+  display: inline-block;
+  margin-bottom: 3rem;
+  color: #C98B1F;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.faq-page__content {
+  padding-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .faq-index,
+  .faq-page {
+    padding-top: 16rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  .faq-result {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+  .faq-result__text {
+    grid-column: 1/-1;
+  }
+}
+
+/*# sourceMappingURL=faq.css.map */
